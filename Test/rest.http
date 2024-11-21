@@ -1,0 +1,14 @@
+####
+GET http://localhost:4000/api/listschools?latitude=16.8220371&longitude=81.263155
+
+
+###
+POST http://localhost:4000/api/addschool
+Content-Type: application/json
+
+{
+  "name":"Sri Venkateshwara Junior and Degree College",
+  "address":"Bhimadole, Andhra Pradesh 534425",
+  "latitude":16.8206879,
+  "longitude":81.2603757
+}
