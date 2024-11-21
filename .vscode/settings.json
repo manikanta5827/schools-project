@@ -1,0 +1,28 @@
+{
+  "sqltools.connections": [
+    {
+      "pgOptions": {
+        "ssl": {
+          "rejectUnauthorized": true
+        }
+      },
+      "previewLimit": 50,
+      "server": "dpg-csvi8p56l47c738o1gs0-a.oregon-postgres.render.com",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "test",
+      "username": "schooldb_uewg_user",
+      "database": "schooldb_uewg"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "postgres",
+      "database": "schooldb",
+      "username": "abbay"
+    }
+  ]
+}
