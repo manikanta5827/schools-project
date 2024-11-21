@@ -10,6 +10,9 @@ app.use(morgan('dev'));
 
 app.use('/api', require('./routes/api.route'));
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the School API');
+});
 app.use((req, res, next) => {
   next(createError.NotFound());
 });
