@@ -12,3 +12,7 @@ Content-Type: application/json
   "latitude":16.8206879,
   "longitude":81.2603757
 }
+
+
+####
+GET http://localhost:4000/api/allschools

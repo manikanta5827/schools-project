@@ -26,7 +26,7 @@ const addschool = async (req, res) => {
 const haversineDistance = (lat1, lon1, lat2, lon2) => {
   const toRad = (value) => (value * Math.PI) / 180;
 
-  const R = 6371; 
+  const R = 6371;
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
   const a =
@@ -37,12 +37,10 @@ const haversineDistance = (lat1, lon1, lat2, lon2) => {
       Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  const distanceInKm = R * c; 
+  const distanceInKm = R * c;
 
-  
-  return `${distanceInKm.toFixed(2)} km`;  
+  return `${distanceInKm.toFixed(2)} km`;
 };
-
 
 const listschools = async (req, res) => {
   const { latitude, longitude } = req.query;
@@ -58,7 +56,6 @@ const listschools = async (req, res) => {
     const userLat = parseFloat(latitude);
     const userLon = parseFloat(longitude);
 
-   
     const schoolsWithDistance = schools.map((school) => ({
       ...school,
       distance: haversineDistance(
@@ -68,7 +65,6 @@ const listschools = async (req, res) => {
         school.longitude
       ),
     }));
-
 
     schoolsWithDistance.sort((a, b) => {
       const distanceA = parseFloat(a.distance);
@@ -82,5 +78,9 @@ const listschools = async (req, res) => {
   }
 };
 
+const allschools = async (req, res) => {
+  const rows = await pool.query('SELECT * FROM schools');
+  res.send(rows.rows);
+};
 
-module.exports = { addschool, listschools };
+module.exports = { addschool, listschools, allschools };
